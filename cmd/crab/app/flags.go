@@ -6,6 +6,7 @@ import (
 
 type Flags struct {
 	ConfigFile string
+	FunctionName string
 }
 
 func (f *Flags) LoadConfig(config string) error {

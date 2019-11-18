@@ -2,7 +2,13 @@ package app
 
 import (
 	"os"
+	// "net/http"
+
 	"github.com/golang/glog"
+	// "k8s.io/apimachinery/pkg/api/errors"
+	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+	"k8s.io/client-go/kubernetes"
+	"k8s.io/client-go/rest"
 )
 
 const Version = "v0.1.0"
@@ -39,16 +45,34 @@ func NewCrabCommand(flags *Flags) *Command {
 }
 
 type Crab struct {
+	Function string
 }
 
 func NewCrab(complete *Options) (*Crab, error) {
-	return nil, nil
+	return &Crab{
+		Function: complete.Function,
+	}, nil
 }
 
-func (p *Crab) Write() {
-}
+func (c *Crab) Run() error {
+	// Download the code from ConfigMap and server as a http server.
+	// TODO: move clientset into Crab as a member
+	config, err := rest.InClusterConfig()
+	if err != nil {
+		glog.Fatalln(err.Error())
+	}
+	// creates the clientset
+	clientset, err := kubernetes.NewForConfig(config)
+	if err != nil {
+		glog.Fatalln(err.Error())
+	}
 
-func (p *Crab) Run() error {
-	// TODO:
+	_, err = clientset.CoreV1().Pods("default").Get(c.Function, metav1.GetOptions{})
+	if err != nil {
+		glog.Fatalln(err.Error())
+	}
+
+	// code := fn.Code
+
 	return nil
 }

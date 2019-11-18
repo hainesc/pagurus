@@ -8,17 +8,21 @@ const (
 )
 // Options contains everything necessary to create and run a piculet server.
 type Options struct {
+	// function is the function name that crab served.
+	Function    string
 	// servicePort is the port to be used by the service server.
-	servicePort int32
+	ServicePort int32
 	// healthzPort is the port to be used by the healthz server.
-	healthzPort int32
+	HealthzPort int32
 	// metricsPort is the port to be used by the metrics server.
-	metricsPort int32
+	MetricsPort int32
 }
 
 // NewOptions returns initialized Options
 func NewOptions(f *Flags) *Options {
-	return nil
+	return &Options{
+		Function: f.FunctionName,
+	}
 }
 
 // Applydefaults applies the default vaules for piculet, such as glog.MaxSize = 64MB
@@ -29,7 +33,7 @@ func (o *Options) applyDefaults() {
 
 func NewCrabConfiguration() *Options {
 	return &Options{
-		servicePort: 8080,
+		ServicePort: 8080,
 	}
 }
 

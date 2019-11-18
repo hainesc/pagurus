@@ -67,6 +67,7 @@ func init() {
 	flag.BoolVar(&version, "version", false, "show version information")
 	flag.BoolVar(&help, "help", false, "show help message")
 	flag.StringVar(&flags.ConfigFile, "config", "", "the config file used for crab")
+	flag.StringVar(&flags.FunctionName, "function", "", "the function that crab served")
 	flag.Usage = usage
 }
 
