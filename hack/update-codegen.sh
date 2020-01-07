@@ -33,6 +33,6 @@ CODEGEN_PKG=${CODEGEN_PKG:-"${GOMOD_ROOT}"/k8s.io/code-generator@${CODEGEN_SUM}}
 
 bash ${CODEGEN_PKG}/generate-groups.sh "deepcopy,client,informer,lister" \
   github.com/hainesc/pagurus/pkg/generated github.com/hainesc/pagurus/pkg/apis \
-  function:v1alpha1 \
+  "function:v1alpha1" \
   --output-base "$(dirname "${BASH_SOURCE[0]}")/../../../.." \
   --go-header-file ${SCRIPT_ROOT}/hack/boilerplate.go.txt

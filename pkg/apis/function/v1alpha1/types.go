@@ -5,6 +5,9 @@ import (
 	api "k8s.io/kubernetes/pkg/apis/core"
 )
 
+// +genclient
+// +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
+
 type Function struct {
 	metav1.TypeMeta
 	// +optional

@@ -4,11 +4,13 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/runtime/schema"
+
+	"github.com/hainesc/pagurus/pkg/apis/function"
 )
 
 // SchemeGroupVersion is group version used to register these objects
 // TODO: 
-var SchemeGroupVersion = schema.GroupVersion{Group: "function.example.io", Version: "v1alpha1"}
+var SchemeGroupVersion = schema.GroupVersion{Group: function.GroupName, Version: "v1alpha1"}
 
 // Kind takes an unqualified kind and returns back a Group qualified GroupKind
 func Kind(kind string) schema.GroupKind {
