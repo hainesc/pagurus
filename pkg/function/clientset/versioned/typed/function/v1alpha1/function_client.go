@@ -28,7 +28,7 @@ package v1alpha1
 
 import (
 	v1alpha1 "github.com/hainesc/pagurus/pkg/apis/function/v1alpha1"
-	"github.com/hainesc/pagurus/pkg/generated/clientset/versioned/scheme"
+	"github.com/hainesc/pagurus/pkg/function/clientset/versioned/scheme"
 	rest "k8s.io/client-go/rest"
 )
 
@@ -37,7 +37,7 @@ type FunctionV1alpha1Interface interface {
 	FunctionsGetter
 }
 
-// FunctionV1alpha1Client is used to interact with features provided by the function.example.com group.
+// FunctionV1alpha1Client is used to interact with features provided by the function.pagurus.io group.
 type FunctionV1alpha1Client struct {
 	restClient rest.Interface
 }

@@ -31,8 +31,12 @@ replace (
 
 require (
 	github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b
+	github.com/stretchr/testify v1.4.0 // indirect
+	golang.org/x/tools v0.0.0-20191206201009-952e2c076240 // indirect
+	k8s.io/api v0.0.0
 	k8s.io/apimachinery v0.0.0
 	k8s.io/client-go v0.0.0
 	k8s.io/code-generator v0.0.0
+	k8s.io/klog v0.4.0
 	k8s.io/kubernetes v1.16.3
 )

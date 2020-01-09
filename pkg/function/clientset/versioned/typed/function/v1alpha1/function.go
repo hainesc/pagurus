@@ -30,7 +30,7 @@ import (
 	"time"
 
 	v1alpha1 "github.com/hainesc/pagurus/pkg/apis/function/v1alpha1"
-	scheme "github.com/hainesc/pagurus/pkg/generated/clientset/versioned/scheme"
+	scheme "github.com/hainesc/pagurus/pkg/function/clientset/versioned/scheme"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	types "k8s.io/apimachinery/pkg/types"
 	watch "k8s.io/apimachinery/pkg/watch"

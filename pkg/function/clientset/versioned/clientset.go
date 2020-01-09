@@ -29,7 +29,7 @@ package versioned
 import (
 	"fmt"
 
-	functionv1alpha1 "github.com/hainesc/pagurus/pkg/generated/clientset/versioned/typed/function/v1alpha1"
+	functionv1alpha1 "github.com/hainesc/pagurus/pkg/function/clientset/versioned/typed/function/v1alpha1"
 	discovery "k8s.io/client-go/discovery"
 	rest "k8s.io/client-go/rest"
 	flowcontrol "k8s.io/client-go/util/flowcontrol"

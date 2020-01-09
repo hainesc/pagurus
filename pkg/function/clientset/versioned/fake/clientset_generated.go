@@ -27,9 +27,9 @@ SOFTWARE.
 package fake
 
 import (
-	clientset "github.com/hainesc/pagurus/pkg/generated/clientset/versioned"
-	functionv1alpha1 "github.com/hainesc/pagurus/pkg/generated/clientset/versioned/typed/function/v1alpha1"
-	fakefunctionv1alpha1 "github.com/hainesc/pagurus/pkg/generated/clientset/versioned/typed/function/v1alpha1/fake"
+	clientset "github.com/hainesc/pagurus/pkg/function/clientset/versioned"
+	functionv1alpha1 "github.com/hainesc/pagurus/pkg/function/clientset/versioned/typed/function/v1alpha1"
+	fakefunctionv1alpha1 "github.com/hainesc/pagurus/pkg/function/clientset/versioned/typed/function/v1alpha1/fake"
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/watch"
 	"k8s.io/client-go/discovery"

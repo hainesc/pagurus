@@ -1,3 +1,19 @@
+/*
+Copyright 2017 The Kubernetes Authors.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
 package v1alpha1
 
 import (
@@ -8,38 +24,30 @@ import (
 // +genclient
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
+// Function is a specification for a Function resource
 type Function struct {
-	metav1.TypeMeta
+	metav1.TypeMeta       `json:",inline"`
 	// +optional
-	metav1.ObjectMeta
-
+	metav1.ObjectMeta     `json:"metadata,omitempty"`
 	// Specification of the desired behavior of the Deployment.
 	// +optional
-	Spec FunctionSpec
-
+	Spec FunctionSpec     `json:"spec"`
 	// Most recently observed status of the Deployment.
 	// +optional
-	Status FunctionStatus
+	Status FunctionStatus `json:"status"`
 }
 
 type FunctionSpec struct {
 	// The code of this function served for.
-	Code string
-
+	Code string    `json:"code"`  // TODO: configmapName as code.
 	// The runtime for this function.
-	Runtime string
-	// Template describes the pods that will be created, if not set, use crab by default.
-	// +optional
-	Template api.PodTemplateSpec
+	Runtime string `json:"runtime"`
 }
 
 type FunctionStatus struct {
 	// Total number of non-terminated pods targeted by this function (their labels match the selector).
 	// +optional
-	Replicas int32
-
-	// Represents the latest available observations of a deployment's current state.
-	Conditions []FunctionCondition
+	Replicas int32 `json:"replicas"`
 }
 
 type FunctionConditionType string
@@ -70,10 +78,9 @@ type FunctionCondition struct {
 
 // FunctionList defines multiple functions.
 type FunctionList struct {
-	metav1.TypeMeta
-	// +optional
-	metav1.ListMeta
+	metav1.TypeMeta `json:",inline"`
+	metav1.ListMeta `json:"metadata"`
 
-	// Items is the list of deployments.
-	Items []Function
+	// Items is the list of functions
+	Items []Function `json:"items"`
 }
